@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2D59C4FE148285B900199C7F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D59C4FD148285B900199C7F /* Cocoa.framework */; };
-		2D59C500148285B900199C7F /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D59C4FF148285B900199C7F /* MacRuby.framework */; };
 		2D59C507148285B900199C7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C505148285B900199C7F /* InfoPlist.strings */; };
 		2D59C509148285B900199C7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D59C508148285B900199C7F /* main.m */; };
 		2D59C50E148285B900199C7F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C50C148285B900199C7F /* MainMenu.xib */; };
 		2D59C511148285B900199C7F /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C510148285B900199C7F /* rb_main.rb */; };
 		2D59C513148285B900199C7F /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C512148285B900199C7F /* AppDelegate.rb */; };
 		2D59C51D14828B4D00199C7F /* mokona.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C51C14828B4D00199C7F /* mokona.icns */; };
+		2D59C51F1482AA1900199C7F /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D59C51E1482AA1900199C7F /* MacRuby.framework */; };
+		2D59C5211482AA8E00199C7F /* Downloader.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C5201482AA8E00199C7F /* Downloader.rb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		2D59C510148285B900199C7F /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		2D59C512148285B900199C7F /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
 		2D59C51C14828B4D00199C7F /* mokona.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mokona.icns; sourceTree = SOURCE_ROOT; };
+		2D59C51E1482AA1900199C7F /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = SDKROOT; };
+		2D59C5201482AA8E00199C7F /* Downloader.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Downloader.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,8 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D59C51F1482AA1900199C7F /* MacRuby.framework in Frameworks */,
 				2D59C4FE148285B900199C7F /* Cocoa.framework in Frameworks */,
-				2D59C500148285B900199C7F /* MacRuby.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +50,7 @@
 		2D59C4EE148285B800199C7F = {
 			isa = PBXGroup;
 			children = (
+				2D59C51E1482AA1900199C7F /* MacRuby.framework */,
 				2D59C502148285B900199C7F /* AnimeWallpaperDownloader */,
 				2D59C4FC148285B900199C7F /* Frameworks */,
 				2D59C4FA148285B900199C7F /* Products */,
@@ -77,6 +81,7 @@
 				2D59C50B148285B900199C7F /* Resources */,
 				2D59C50F148285B900199C7F /* Other Sources */,
 				2D59C503148285B900199C7F /* Supporting Files */,
+				2D59C5201482AA8E00199C7F /* Downloader.rb */,
 			);
 			path = AnimeWallpaperDownloader;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				2D59C511148285B900199C7F /* rb_main.rb in Resources */,
 				2D59C513148285B900199C7F /* AppDelegate.rb in Resources */,
 				2D59C51D14828B4D00199C7F /* mokona.icns in Resources */,
+				2D59C5211482AA8E00199C7F /* Downloader.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,7 @@ class AppDelegate
     attr_accessor :saveInto
     attr_accessor :startButton
     attr_accessor :output
+    attr_accessor :downloader
     
     def applicationDidFinishLaunching(a_notification)
         @startButton.setEnabled(false)
@@ -47,6 +48,37 @@ class AppDelegate
         if dialog.runModalForDirectory(nil, file:nil) == NSOKButton
             @saveInto.stringValue = dialog.filenames.first
         end
+    end
+    
+    def startStop(sender)
+        if @downloader == nil
+            @output.setString('')
+            @downloader = Downloader.new(@tags.stringValue,@size.selectedItem.title,@number.stringValue,@saveInto.stringValue,self)
+            @downloader.start
+            @startButton.setTitle("Stop Download")
+        else
+            @downloader.stop
+            @downloader = nil
+            @startButton.setTitle("Start Download")
+        end
+    end
+    
+    def puts(val)
+        $stdout.puts "adding to log"
+        storage = @output.textStorage
+        
+        storage.beginEditing
+        storage.appendAttributedString(NSAttributedString.alloc.initWithString(val+"\n"))
+        storage.endEditing
+        
+        $stdout.puts "added to log"
+    end
+    
+    def stopped
+        @startButton.setTitle("Start Download")
+        down = @downloader
+        @downloader = nil
+        down.stop
     end
 end
 
