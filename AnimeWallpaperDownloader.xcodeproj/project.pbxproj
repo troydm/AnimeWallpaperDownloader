@@ -14,19 +14,21 @@
 		2D59C50E148285B900199C7F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C50C148285B900199C7F /* MainMenu.xib */; };
 		2D59C511148285B900199C7F /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C510148285B900199C7F /* rb_main.rb */; };
 		2D59C513148285B900199C7F /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C512148285B900199C7F /* AppDelegate.rb */; };
+		2D59C51D14828B4D00199C7F /* mokona.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C51C14828B4D00199C7F /* mokona.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D59C4F9148285B900199C7F /* AnimeWallpaperDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeWallpaperDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D59C4FD148285B900199C7F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2D59C4FF148285B900199C7F /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
-		2D59C504148285B900199C7F /* AnimeWallpaperDownloader-Info.plist */ = {isa = PBXFileReference; path = "AnimeWallpaperDownloader-Info.plist"; sourceTree = "<group>"; };
+		2D59C504148285B900199C7F /* AnimeWallpaperDownloader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnimeWallpaperDownloader-Info.plist"; sourceTree = "<group>"; };
 		2D59C506148285B900199C7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2D59C508148285B900199C7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2D59C50A148285B900199C7F /* AnimeWallpaperDownloader-Prefix.pch */ = {isa = PBXFileReference; path = "AnimeWallpaperDownloader-Prefix.pch"; sourceTree = "<group>"; };
+		2D59C50A148285B900199C7F /* AnimeWallpaperDownloader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnimeWallpaperDownloader-Prefix.pch"; sourceTree = "<group>"; };
 		2D59C50D148285B900199C7F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2D59C510148285B900199C7F /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		2D59C512148285B900199C7F /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
+		2D59C51C14828B4D00199C7F /* mokona.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mokona.icns; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		2D59C50B148285B900199C7F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D59C51C14828B4D00199C7F /* mokona.icns */,
 				2D59C50C148285B900199C7F /* MainMenu.xib */,
 			);
 			name = Resources;
@@ -177,6 +180,7 @@
 				2D59C50E148285B900199C7F /* MainMenu.xib in Resources */,
 				2D59C511148285B900199C7F /* rb_main.rb in Resources */,
 				2D59C513148285B900199C7F /* AppDelegate.rb in Resources */,
+				2D59C51D14828B4D00199C7F /* mokona.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
