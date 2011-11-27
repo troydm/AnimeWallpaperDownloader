@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D59C4FE148285B900199C7F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D59C4FD148285B900199C7F /* Cocoa.framework */; };
+		2D59C500148285B900199C7F /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D59C4FF148285B900199C7F /* MacRuby.framework */; };
+		2D59C507148285B900199C7F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C505148285B900199C7F /* InfoPlist.strings */; };
+		2D59C509148285B900199C7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D59C508148285B900199C7F /* main.m */; };
+		2D59C50E148285B900199C7F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C50C148285B900199C7F /* MainMenu.xib */; };
+		2D59C511148285B900199C7F /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C510148285B900199C7F /* rb_main.rb */; };
+		2D59C513148285B900199C7F /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2D59C512148285B900199C7F /* AppDelegate.rb */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2D59C4F9148285B900199C7F /* AnimeWallpaperDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeWallpaperDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D59C4FD148285B900199C7F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		2D59C4FF148285B900199C7F /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
+		2D59C504148285B900199C7F /* AnimeWallpaperDownloader-Info.plist */ = {isa = PBXFileReference; path = "AnimeWallpaperDownloader-Info.plist"; sourceTree = "<group>"; };
+		2D59C506148285B900199C7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2D59C508148285B900199C7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2D59C50A148285B900199C7F /* AnimeWallpaperDownloader-Prefix.pch */ = {isa = PBXFileReference; path = "AnimeWallpaperDownloader-Prefix.pch"; sourceTree = "<group>"; };
+		2D59C50D148285B900199C7F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2D59C510148285B900199C7F /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
+		2D59C512148285B900199C7F /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D59C4F6148285B900199C7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D59C4FE148285B900199C7F /* Cocoa.framework in Frameworks */,
+				2D59C500148285B900199C7F /* MacRuby.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D59C4EE148285B800199C7F = {
+			isa = PBXGroup;
+			children = (
+				2D59C502148285B900199C7F /* AnimeWallpaperDownloader */,
+				2D59C4FC148285B900199C7F /* Frameworks */,
+				2D59C4FA148285B900199C7F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D59C4FA148285B900199C7F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D59C4F9148285B900199C7F /* AnimeWallpaperDownloader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D59C4FC148285B900199C7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D59C4FD148285B900199C7F /* Cocoa.framework */,
+				2D59C4FF148285B900199C7F /* MacRuby.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2D59C502148285B900199C7F /* AnimeWallpaperDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				2D59C512148285B900199C7F /* AppDelegate.rb */,
+				2D59C50B148285B900199C7F /* Resources */,
+				2D59C50F148285B900199C7F /* Other Sources */,
+				2D59C503148285B900199C7F /* Supporting Files */,
+			);
+			path = AnimeWallpaperDownloader;
+			sourceTree = "<group>";
+		};
+		2D59C503148285B900199C7F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D59C504148285B900199C7F /* AnimeWallpaperDownloader-Info.plist */,
+				2D59C505148285B900199C7F /* InfoPlist.strings */,
+				2D59C508148285B900199C7F /* main.m */,
+				2D59C50A148285B900199C7F /* AnimeWallpaperDownloader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2D59C50B148285B900199C7F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2D59C50C148285B900199C7F /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2D59C50F148285B900199C7F /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2D59C510148285B900199C7F /* rb_main.rb */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		2D59C501148285B900199C7F /* Deployment */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "--compile --embed";
+			buildConfigurationList = 2D59C519148285B900199C7F /* Build configuration list for PBXLegacyTarget "Deployment" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/local/bin/macruby_deploy;
+			dependencies = (
+			);
+			name = Deployment;
+			passBuildSettingsInEnvironment = 1;
+			productName = Deployment;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		2D59C4F8148285B900199C7F /* AnimeWallpaperDownloader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D59C516148285B900199C7F /* Build configuration list for PBXNativeTarget "AnimeWallpaperDownloader" */;
+			buildPhases = (
+				2D59C4F5148285B900199C7F /* Sources */,
+				2D59C4F6148285B900199C7F /* Frameworks */,
+				2D59C4F7148285B900199C7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnimeWallpaperDownloader;
+			productName = AnimeWallpaperDownloader;
+			productReference = 2D59C4F9148285B900199C7F /* AnimeWallpaperDownloader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D59C4F0148285B800199C7F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 2D59C4F3148285B800199C7F /* Build configuration list for PBXProject "AnimeWallpaperDownloader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2D59C4EE148285B800199C7F;
+			productRefGroup = 2D59C4FA148285B900199C7F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D59C4F8148285B900199C7F /* AnimeWallpaperDownloader */,
+				2D59C501148285B900199C7F /* Deployment */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D59C4F7148285B900199C7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D59C507148285B900199C7F /* InfoPlist.strings in Resources */,
+				2D59C50E148285B900199C7F /* MainMenu.xib in Resources */,
+				2D59C511148285B900199C7F /* rb_main.rb in Resources */,
+				2D59C513148285B900199C7F /* AppDelegate.rb in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D59C4F5148285B900199C7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D59C509148285B900199C7F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2D59C505148285B900199C7F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D59C506148285B900199C7F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2D59C50C148285B900199C7F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D59C50D148285B900199C7F /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D59C514148285B900199C7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2D59C515148285B900199C7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2D59C517148285B900199C7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimeWallpaperDownloader/AnimeWallpaperDownloader-Prefix.pch";
+				INFOPLIST_FILE = "AnimeWallpaperDownloader/AnimeWallpaperDownloader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2D59C518148285B900199C7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimeWallpaperDownloader/AnimeWallpaperDownloader-Prefix.pch";
+				INFOPLIST_FILE = "AnimeWallpaperDownloader/AnimeWallpaperDownloader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2D59C51A148285B900199C7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		2D59C51B148285B900199C7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D59C4F3148285B800199C7F /* Build configuration list for PBXProject "AnimeWallpaperDownloader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D59C514148285B900199C7F /* Debug */,
+				2D59C515148285B900199C7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D59C516148285B900199C7F /* Build configuration list for PBXNativeTarget "AnimeWallpaperDownloader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D59C517148285B900199C7F /* Debug */,
+				2D59C518148285B900199C7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2D59C519148285B900199C7F /* Build configuration list for PBXLegacyTarget "Deployment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D59C51A148285B900199C7F /* Debug */,
+				2D59C51B148285B900199C7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D59C4F0148285B800199C7F /* Project object */;
+}
