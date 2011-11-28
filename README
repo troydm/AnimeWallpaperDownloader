@@ -1,0 +1,12 @@
+This is a simple Anime Wallpaper Downloader written in MacRuby for Mac OS X
+It downloads wallpapers from theotaku.com using tags
+You need to have MacRuby 0.10 installed to use it.
+Tested under Mac OS X Lion but should work on Snow Leopard too
+
+Author: Dmitry Geurkov (dmitry_627@mail.ru)
+
+It's source code is licensed under GPL v3 terms
+
+It uses Mokona from Tsubasa: Reservoir Chronicle as it's icon
+
+bye-nii
