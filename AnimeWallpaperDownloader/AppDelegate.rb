@@ -14,11 +14,19 @@ class AppDelegate
     attr_accessor :saveInto
     attr_accessor :startButton
     attr_accessor :output
+    attr_accessor :downprogress
     attr_accessor :downloader
+    attr_accessor :img
     
-    def applicationDidFinishLaunching(a_notification)
+    def applicationDidFinishLaunching(a_notification)        
         @startButton.setEnabled(false)
+        @downprogress.setStringValue('')
+        @output.setStringValue('')
         @saveInto.stringValue = NSHomeDirectory()+"/Pictures"
+    end
+    
+    def windowWillClose(a_notification)
+        NSApp.terminate(self)
     end
     
     def controlTextDidChange(notification)
@@ -52,7 +60,6 @@ class AppDelegate
     
     def startStop(sender)
         if @downloader == nil
-            @output.setString('')
             @downloader = Downloader.new(@tags.stringValue,@size.selectedItem.title,@number.stringValue,@saveInto.stringValue,self)
             @downloader.start
             @startButton.setTitle("Stop Download")
@@ -63,15 +70,25 @@ class AppDelegate
         end
     end
     
+    def changeImage(file)
+        @img.setImage(NSImage.alloc.initByReferencingFile(file))
+    end
+    
+    def clearStatus
+        @downprogress.setStringValue('')
+    end
+    
+    def setStatus(i,m)
+        @downprogress.setStringValue("Downloading "+i.to_s()+" of "+m.to_s())
+    end
+    
+    def setStatusEnd(i)
+        @downprogress.setStringValue("Downloaded "+i.to_s()+" wallpapers")
+    end
+    
     def puts(val)
-        $stdout.puts "adding to log"
-        storage = @output.textStorage
-        
-        storage.beginEditing
-        storage.appendAttributedString(NSAttributedString.alloc.initWithString(val+"\n"))
-        storage.endEditing
-        
-        $stdout.puts "added to log"
+        $stdout.puts val      
+        @output.setStringValue(val)
     end
     
     def stopped

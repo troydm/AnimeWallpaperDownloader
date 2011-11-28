@@ -65,15 +65,22 @@ class Downloader
     def downloadFile(url)
         
         name = url[url.rindex('/')+1,1000]
+                
+        if File.exists?(@saveTo+'/'+name)
+            @app.puts 'wallpaper already saved '+name
+            @app.changeImage(@saveTo+'/'+name)
+        else
         
-        @app.puts 'downloading file '+url
+            @app.puts 'downloading file '+url
         
-        response = Net::HTTP.get_response(URI.parse(url))
-        open(@saveTo+'/'+name, 'wb') { |file|
-            file.write(response.body)
-        }
+            response = Net::HTTP.get_response(URI.parse(url))
+            open(@saveTo+'/'+name, 'wb') { |file|
+                file.write(response.body)
+            }
         
-        @app.puts 'wallpaper saved '+name
+            @app.puts 'wallpaper saved '+name
+            @app.changeImage(@saveTo+'/'+name)
+        end
     end
     
     def getWallUrl(i,url,size)
@@ -82,7 +89,7 @@ class Downloader
         
         i = i+1
         
-        @app.puts i.to_s()+': getting '+url+' sizes'
+        @app.puts 'getting '+url+' sizes'
         
         response = Net::HTTP.get_response(URI.parse(url))
         
@@ -103,8 +110,6 @@ class Downloader
         
         sizef = @size.sub('_','-by-')
         sizes = sizes.keys()
-        
-        puts 'sizes: '+sizes.to_s()
         
         if sizef == ''
             maxi = 0
@@ -140,15 +145,16 @@ class Downloader
             begin
                 i = 0
                 p = 1
-                while i < @number.to_i() or @exit
+                @app.clearStatus
+                while i < @number.to_i() and not @exit
                     w = self.getIndexPage(p)
                     if w.size == 0
                         break
                     end
                     w.each { |w|
                         wallu = self.getWallUrl(i,w,self.size)
-                        puts 'size selected'
                         if wallu != nil
+                            @app.setStatus(i+1,@number.to_i())
                             self.downloadWall(wallu)
                             i = i+1
                             if i >= @number.to_i() or @exit
@@ -157,7 +163,9 @@ class Downloader
                         end
                     }
                     p = p+1
-                end                    
+                end
+                @app.puts ""
+                @app.setStatusEnd(i)
             rescue => e
                 puts e
             end
@@ -166,8 +174,8 @@ class Downloader
     end
     
     def stop
-        @app.puts "Download stopped"
         begin
+            @app.puts "Download stopped"
             if @thread.alive?
                 if @thread == Thread.current
                     Thread.exit(0)
