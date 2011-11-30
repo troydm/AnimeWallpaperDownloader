@@ -24,9 +24,9 @@ class Downloader
   def getIndexPage(page)
     walls = {}
 
-    url = 'http://www.theotaku.com/wallpapers/tags/'+tags+'/?sort_by=&resolution='+size+'&date_filter=&category=&page='+page.to_s()
+    url = "http://www.theotaku.com/wallpapers/tags/#{tags}/?sort_by=&resolution=#{size}&date_filter=&category=&page=#{page}"
 
-    @app.puts 'getting index for page: '+page.to_s()
+    @app.puts "getting index for page: #{page}"
     @app.puts url
 
     response = Net::HTTP.get_response(URI.parse(url))
@@ -46,13 +46,13 @@ class Downloader
         end
     }
 
-    @app.puts 'got '+walls.size.to_s()+' wallpapers'
+    @app.puts "got #{walls.size} wallpapers"
 
     return walls.keys
   end
 
   def downloadWall(url)
-    @app.puts 'downloading '+url
+    @app.puts "downloading #{url}"
     response = Net::HTTP.get_response(URI.parse(url))
     res = response.body
     b = res.index('src',res.rindex('wall_holder'))+5
@@ -68,14 +68,14 @@ class Downloader
       @app.puts 'wallpaper already saved '+name
       @app.changeImage(@saveTo+'/'+name)
     else
-      @app.puts 'downloading file '+url
+      @app.puts "downloading file #{url}"
 
       response = Net::HTTP.get_response(URI.parse(url))
       open(@saveTo+'/'+name, 'wb') { |file|
         file.write(response.body)
       }
 
-      @app.puts 'wallpaper saved '+name
+      @app.puts "wallpaper saved #{name}"
       @app.changeImage(@saveTo+'/'+name)
     end
   end
@@ -84,7 +84,7 @@ class Downloader
     sizes = {}
     i = i+1
 
-    @app.puts 'getting '+url+' sizes'
+    @app.puts "getting #{url} sizes"
 
     response = Net::HTTP.get_response(URI.parse(url))
 
@@ -136,7 +136,7 @@ class Downloader
 
   def start
     @thread = Thread.new {
-      @app.puts "Download started"
+      @app.puts 'Download started'
       begin
         i = 0
         p = 1
@@ -171,7 +171,7 @@ class Downloader
 
   def stop
     begin
-      @app.puts "Download stopped"
+      @app.puts 'Download stopped'
       if @thread.alive?
         if @thread == Thread.current
           Thread.exit(0)
