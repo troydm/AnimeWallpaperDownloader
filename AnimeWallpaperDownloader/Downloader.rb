@@ -24,84 +24,76 @@ class Downloader
     Net::HTTP.get_response(URI.parse(url)).body
   end
 
-  def getIndexPage(page)
-    walls = {}
+  def parse_response(url, path, char)
+    cont = []
 
+    response(url).each_line do |line|
+      f = line.index("wallpapers/#{path}")
+
+      until f.nil?
+        b = line.rindex(char, f)
+        e = line.index(char, b + 1)
+        u = line[b+1, e-b].gsub(char, '')
+        line.sub!(u, '')
+        f = line.index("wallpapers/#{path}")
+
+        cont << u
+      end
+    end
+
+    cont
+  end
+
+  def getIndexPage(page)
     url = "http://www.theotaku.com/wallpapers/tags/#{tags}/?sort_by=&resolution=#{size}&date_filter=&category=&page=#{page}"
 
     @app.puts "getting index for page: #{page}"
     @app.puts url
 
-    res = response(url)
-    res.each_line do |line|
-        f = line.index('wallpapers/view')
-
-        while f != nil
-          b = line.rindex('"',f)
-          e = line.index('"',b+1)
-          u = line[b+1,e-b].gsub('"','')
-          walls[u] = u
-          line = line.sub(u,'')
-          f = line.index('wallpapers/view')
-        end
-    end
+    walls = parse_response(url, 'view', '"')
 
     @app.puts "got #{walls.size} wallpapers"
 
-    return walls.keys
+    walls
   end
 
   def downloadWall(url)
     @app.puts "downloading #{url}"
+
     res = response(url)
-    b = res.index('src',res.rindex('wall_holder'))+5
-    e = res.index('"',b)
-    img = res[b,e-b]
+    b = res.index('src', res.rindex('wall_holder')) + 5
+    e = res.index('"', b)
+    img = res[b, e-b]
 
     self.downloadFile(img)
   end
 
   def downloadFile(url)
-    name = url[url.rindex('/')+1, 1000]
+    name = url[url.rindex('/') + 1, 1000]
+    file = "#{@saveTo}/#{name}"
 
-    if File.exists?(@saveTo+'/'+name)
+    if File.exists?(file)
       @app.puts "wallpaper already saved #{name}"
-      @app.changeImage(@saveTo+'/'+name)
+      @app.changeImage(file)
     else
       @app.puts "downloading file #{url}"
 
-      open(@saveTo+'/'+name, 'wb') { |file| file.write(response(url)) }
+      open(file, 'wb') { |file| file.write(response(url)) }
 
       @app.puts "wallpaper saved #{name}"
-      @app.changeImage(@saveTo+'/'+name)
+      @app.changeImage(file)
     end
   end
 
   def getWallUrl(i, url, size)
-    sizes = {}
     i = i+1
 
     @app.puts "getting #{url} sizes"
 
-    res = response(url)
-    res.each_line do |line|
-        f = line.index('wallpapers/download')
+    sizes = parse_response(url, 'download', '\'')
+    sizef = @size.sub('_', '-by-')
 
-        while f != nil
-          b = line.rindex('\'', f)
-          e = line.index('\'', b+1)
-          u = line[b+1, e-b]
-          u = u.gsub('\'', '')
-          sizes[u] = u
-          line = line.sub(u, '')
-          f = line.index('wallpapers/download')
-        end
-    end
-
-    sizef = @size.sub('_','-by-')
-    sizes = sizes.keys
-
-    if sizef == ''
+    if sizef.empty?
       maxi, max, i  = 0, 0, 0
 
       sizes.each do |s|
@@ -120,7 +112,7 @@ class Downloader
       sizes.each { |s| return s if s =~ /#{Regexp.escape(sizef)}$/ }
     end
 
-    return sizes[0]
+    sizes[0]
   end
 
   def start
@@ -130,14 +122,14 @@ class Downloader
         i, p = 0, 1
         @app.clearStatus
 
-        while i < @number.to_i() and not @exit
+        while i < @number.to_i and not @exit
           w = self.getIndexPage(p)
           break if w.empty?
           w.each do |w|
             wallu = self.getWallUrl(i, w, self.size)
 
             unless wallu.nil?
-              @app.setStatus(i+1, @number.to_i())
+              @app.setStatus(i+1, @number.to_i)
               self.downloadWall(wallu)
               i = i+1
               break if i >= @number.to_i or @exit
