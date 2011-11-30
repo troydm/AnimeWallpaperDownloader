@@ -9,33 +9,34 @@ require 'thread'
 require 'net/http'
 
 class Downloader
-    attr_accessor :tags, :size, :number, :saveTo, :thread
-    attr_accessor :app, :exit
+    attr_accessor :tags, :size, :number, :saveTo, :thread,
+                  :app, :exit
+
     def initialize(tags, size, number, saveTo, app)
         @tags = tags.sub(' ','_')
-        @size = size == 'Any' ? '' : size.sub('x','_') 
+        @size = size == 'Any' ? '' : size.sub('x','_')
         @number = number
         @saveTo = saveTo
         @app = app
         @exit = false
     end
-    
+
     def getIndexPage(page)
-        
+
         walls = {}
-        
+
         url = 'http://www.theotaku.com/wallpapers/tags/'+tags+'/?sort_by=&resolution='+size+'&date_filter=&category=&page='+page.to_s()
-        
+
         @app.puts 'getting index for page: '+page.to_s()
         @app.puts url
-        
+
         response = Net::HTTP.get_response(URI.parse(url))
-        
+
         res = response.body
-        
+
         res.each_line { |line|
             f = line.index('wallpapers/view')
-            
+
             while f != nil
                 b = line.rindex('"',f)
                 e = line.index('"',b+1)
@@ -45,56 +46,51 @@ class Downloader
                 f = line.index('wallpapers/view')
             end
         }
-        
+
         @app.puts 'got '+walls.size.to_s()+' wallpapers'
-        
+
         return walls.keys
-        
     end
-    
-    def downloadWall(url)        
-        @app.puts 'downloading '+url        
-        response = Net::HTTP.get_response(URI.parse(url))        
+
+    def downloadWall(url)
+        @app.puts 'downloading '+url
+        response = Net::HTTP.get_response(URI.parse(url))
         res = response.body        
         b = res.index('src',res.rindex('wall_holder'))+5
         e = res.index('"',b)
         img = res[b,e-b]
         self.downloadFile(img)
     end
-    
+
     def downloadFile(url)
-        
         name = url[url.rindex('/')+1,1000]
-                
+
         if File.exists?(@saveTo+'/'+name)
             @app.puts 'wallpaper already saved '+name
             @app.changeImage(@saveTo+'/'+name)
         else
-        
             @app.puts 'downloading file '+url
-        
+
             response = Net::HTTP.get_response(URI.parse(url))
             open(@saveTo+'/'+name, 'wb') { |file|
                 file.write(response.body)
             }
-        
+
             @app.puts 'wallpaper saved '+name
             @app.changeImage(@saveTo+'/'+name)
         end
     end
-    
+
     def getWallUrl(i,url,size)
-        
         sizes = {}
-        
         i = i+1
-        
+
         @app.puts 'getting '+url+' sizes'
-        
+
         response = Net::HTTP.get_response(URI.parse(url))
-        
+
         res = response.body
-        
+
         res.each_line { |line|
             f = line.index('wallpapers/download')
             while f != nil
@@ -107,10 +103,10 @@ class Downloader
                 f = line.index('wallpapers/download')
             end
         }
-        
+
         sizef = @size.sub('_','-by-')
         sizes = sizes.keys()
-        
+
         if sizef == ''
             maxi = 0
             max = 0
@@ -128,17 +124,17 @@ class Downloader
                 i = i+1
             }
             return sizes[maxi]
-        else        
+        else
             sizes.each { |s|
                 if s =~ /#{Regexp.escape(sizef)}$/
                     return s
                 end
             }
         end
-        
-        return sizes[0]        
+
+        return sizes[0]
     end
-    
+
     def start
         @thread = Thread.new {
             @app.puts "Download started"
@@ -172,7 +168,7 @@ class Downloader
             @app.stopped
         }
     end
-    
+
     def stop
         begin
             @app.puts "Download stopped"
