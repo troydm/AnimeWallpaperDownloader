@@ -12,8 +12,8 @@ class Downloader
   attr_accessor :tags, :size, :number, :saveTo, :thread, :app, :exit
 
   def initialize(tags, size, number, saveTo, app)
-      @tags = tags.sub(' ', '_')
-      @size = size == 'Any' ? '' : size.sub('x', '_')
+      @tags = tags.gsub(' ', '_')
+      @size = size == 'Any' ? '' : size.gsub('x', '_')
       @number = number
       @saveTo = saveTo
       @app = app
@@ -41,7 +41,7 @@ class Downloader
       end
     end
 
-    cont
+    cont.uniq
   end
 
   def getIndexPage(page)
@@ -124,12 +124,12 @@ class Downloader
 
         while i < @number.to_i and not @exit
           w = self.getIndexPage(p)
+          t = w.size < 16 ? (w.size+i) : @number.to_i 
           break if w.empty?
           w.each do |w|
             wallu = self.getWallUrl(i, w, self.size)
-
             unless wallu.nil?
-              @app.setStatus(i+1, @number.to_i)
+              @app.setStatus(i+1, t)
               self.downloadWall(wallu)
               i = i+1
               break if i >= @number.to_i or @exit
